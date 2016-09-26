@@ -49,7 +49,6 @@
         <link href="https://codelite9006.github.io/tocas/tocas.css" rel="stylesheet" type="text/css" />
     </head>
     <body neon="body">
-        <span neon-text="violet">本頁渲染速度：</span><span class="render" neon-text="red"></span>
         <div class="dimmer">
             <div style="position:absolute; top:50%; margin-top:-16px; left:50%; margin-left:-16px;">
                 <center>
@@ -58,7 +57,7 @@
                 </center>
             </div>
         </div>
-        <header neon-con="violet" class="ts fluid horizontally fitted extra padded jumbotron" style="margin-top:10px;">
+        <header neon-con="violet" class="ts fluid horizontally fitted extra padded jumbotron">
             <div class="ts center aligned narrow container">
                 <h3 class="ts center aligned icon header">
                     <i neon-text="violet" class="lightning icon"></i>
@@ -140,16 +139,38 @@
                 </div>
             </article>
         </section>
-		<footer data-v-56="" class="ts very padded horizontally fitted fluid secondary segment" data-v-9=""><div data-v-56="" class="ts narrow container"><ul data-v-56="" class="ts relaxed link list"><li data-v-56=""><a data-v-56="" href="#!" class="to top"><i data-v-56="" class="arrow up icon"></i> 回到頂部
-                </a></li> <li data-v-56=""><a data-v-56="" href="//github.com/TeaMeow/TocasUI/">Github</a></li> <li data-v-56=""><a href="/examples/" class="" data-v-56="">實際範例</a></li> <li data-v-56=""><a href="/about/" class="" data-v-56="">關於</a></li></ul> <p data-v-56="">
-            由 <a data-v-56="" href="http://www.facebook.com/yamiodymel">Yami Odymel</a> 所設計，
-            還有<a data-v-56="" href="https://github.com/TeaMeow/TocasUI/graphs/contributors">貢獻者們</a>的愛心 ❤️。
-            原始碼授權方式為 <a data-v-56="" href="https://github.com/TeaMeow/TocasUI/blob/master/LICENSE">MIT</a>，
-            文件則為 <a data-v-56="" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">CC BY 4.0</a>，
-            還請盡情地使用和分享，或者是一同改進 :)
-        </p> <p data-v-56="" class="render time">
-            本頁渲染速度：280 ms
-        </p></div></footer>
+		<footer class="ts very padded horizontally fitted fluid secondary segment">
+			<div class="ts narrow container">
+				<ul class="ts relaxed link list">
+					<li>
+						<a href="#!" class="to top">
+							<i class="arrow up icon"></i> 回到頂部
+						</a>
+					</li>
+					<li>
+						<a href="//github.com/TeaMeow/TocasUI/">Github</a>
+					</li>
+					<li>
+						<a href="/examples/" class="">
+							實際範例
+						</a>
+					</li>
+					<li>
+						<a href="/about/" class="">關於</a>
+					</li>
+				</ul>
+				<p>
+					由<a href="http://www.facebook.com/yamiodymel">Yami Odymel</a> 所設計，	還有
+					<a href="https://github.com/TeaMeow/TocasUI/graphs/contributors">貢獻者們</a>的愛心 ❤️。
+		原始碼授權方式為 <a href="https://github.com/TeaMeow/TocasUI/blob/master/LICENSE">MIT</a>，
+		文件則為 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">CC BY 4.0</a>，
+		還請盡情地使用和分享，或者是一同改進 :)	
+				</p>
+				<p class="render time">
+					<span neon-text="violet">本頁渲染速度：</span><span class="render" neon-text="red"></span>
+				</p>
+			</div>
+		</footer>
     </body>
 </html>
 
