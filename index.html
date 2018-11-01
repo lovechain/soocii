@@ -9,19 +9,39 @@
 一個抽獎機會。給越多機會越高。<br>
 <br>得獎者可以在傳說贈禮的地方選擇任何一個皮膚造型不包括英雄。請得獎者確保擁有該英雄。</div>
 
-<table class="ts table" style="margin:5% 1% 1% 1%; width:98%">
+<table class="ts inverted table" style="margin:5% 1% 1% 1%; width:98%">
     <thead style="">
-    <tr>
+    <tr class="header expand">
     <th>名字</th>
     <th>Soocii ID</th>
-    <th>河豚生魚片</th>
+    <th>抽獎機會
+    <span class="sign"></span></th>
     </tr>
-    </thead> 
+    </thead>
     <tbody style="">
-        <tr>
+        <tr class="breakrow" style="background:#eee; color:#000;">
         <td>啊佑</td>
-        <td>S.otis890504</td> 
+        <td>S.otis890504</td>
         <td>4</td>
+        </tr>
+        <tr>
+        <td style="background:#356"colspan="3">明細</td>
+        </tr>
+        <tr>
+        <td style="background:#356"colspan="3">2018年10月31日 貢獻一個河豚生魚片(標題誤導)</td>
+        </tr>
+        <tr>
+        <td style="background:#356"colspan="3">2018年11月1日 貢獻三個河豚生魚片</td>
         </tr>
     </tbody>
 </table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$('tr.breakrow').nextUntil('tr.breakrow').slideToggle(200);
+$('.breakrow').click(function(){
+$(this).nextUntil('tr.breakrow').slideToggle(200);
+});
+});
+</script>
