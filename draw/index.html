@@ -1,0 +1,142 @@
+44<!-- Tocas UI：CSS 與元件 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+<link rel="stylesheet" href="https://codelite9006.github.io/css/neon.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
+<meta name="theme-color" content="#242b31">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<div neon-text="white"id="header"style="margin:1%;" class="ts small header">
+<!--歡迎各位乾爹,乾姊抖內S幣支持我開發網頁app<br>
+據報錯誤,請截圖聯繫我<br>
+-->
+測試文字測試文字測試文字測試文字測試文字測試文字測試文字
+</div><br>
+<div neon-text="white">
+XXX ID : <a href="https://hc7xy.app.goo.gl/D8vBXX">XXXX</a><br>
+XXX ID : <a href="https://line.me/ti/p/ZY5EevnfORXX">XXXX</a><br>
+</div>
+<br>
+<div neon-con="blue" class="ts left action input" style ="margin:1%; width:100%; border: none! important ;">
+    <button neon-con="blue" class="ts labeled icon button" onclick="fnAdd()">
+        <i class="add icon" style="width:100%;"></i>
+    </button>
+    <input id="name" type="text" placeholder="請輸入 [抽獎者ID@票數]" style="width:100%;">
+    <input id="namelist" type="hidden">
+</div>
+
+<table neon-con="violet" class="ts inverted table" style="border: none; margin:1% 1% 0px 1%; width:98%; border-bottom: none! important;">
+    <thead style="text-align: left;">
+        <tr>
+            <th>參賽者名字</th>
+            <th>票數 ID</th>
+        </tr>
+    </thead>
+</table>
+<div style="border:none; margin: 0px 1% 1% 1%; height:200px; overflow-y:auto">
+<table neon-con="violet"id="tablelist" class="ts table">
+    <tbody style="text-align:center">
+        <tr>
+        <td colspan="2" >請輸入資料...</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<button neon-con="orange" onclick="fnshuffle()" class="ts warning button" style="margin:1%;">攪亂次序</button>
+<button neon-con="green" onclick="fndraw()"class="ts positive button">抽獎</button>
+
+
+<script>
+var currentlist =[];
+function fnAdd(){
+var name=document.getElementById("name");
+var namelist=document.getElementById("namelist");
+//check value
+if(name.value===""){
+alert("請輸入參賽者和票數");
+return 0;
+}
+
+//check format
+if(name.value.split("@").length != 2){
+alert("請輸入正確格式 [參賽者@票數]");
+return 0;
+}
+if(namelist.value===""){
+namelist.value=name.value;
+var table= document.getElementById("tablelist");
+table.innerHTML="";
+var arr= name.value.split("@");
+var idtotal=0;
+for(var a=0; a<arr[1]; a++){
+idtotal++;
+var aid="";
+if(idtotal<10) aid="SC00000"+idtotal; 
+else if(idtotal<100) aid="SC0000"+idtotal; 
+else if(idtotal<1000) aid="SC000"+idtotal; 
+table.innerHTML+="<tbody style='text-align:center'><tr><td>"+arr[0]+"</td><td>"+aid+"</td></tr></tbody>";
+currentlist.push(arr[0]+"@"+aid);
+}
+}
+else{
+namelist.value+= ","+name.value;
+var length = namelist.value.split(",").length;
+var arrlist = namelist.value.split(",");
+var table= document.getElementById("tablelist");
+
+table.innerHTML="";
+currentlist =[];
+idtotal=0;
+for(var i=0; i< length; i++){
+var arr= arrlist[i].split("@");
+for(var a=0; a<arr[1]; a++){
+idtotal++;
+var aid="";
+if(idtotal<10) aid="SC00000"+idtotal; 
+else if(idtotal<100) aid="SC0000"+idtotal; 
+else if(idtotal<1000) aid="SC000"+idtotal; 
+table.innerHTML+="<tbody style='text-align:center'><tr><td>"+arr[0]+"</td><td>"+aid+"</td></tr></tbody>";
+currentlist.push(arr[0]+"@"+aid);
+}
+}
+}
+}
+
+function fnshuffle(){
+var table= document.getElementById("tablelist");
+table.innerHTML="";
+var length=currentlist.length;
+var shufflelist = shuffle(currentlist);
+currentlist=[];
+for(var a=0; a<length; a++){
+var currentsplit = shufflelist[a].split("@");
+table.innerHTML+="<tbody style='text-align:center'><tr><td>"+currentsplit[0]+"</td><td>"+currentsplit[1]+"</td></tr></tbody>";
+currentlist.push(currentsplit[0]+"@"+currentsplit[1]);
+}
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
+function fndraw(){
+randomIndex = Math.floor(Math.random() * currentlist.length);
+var result=currentlist[randomIndex].split("@");
+alert("恭喜"+result[0]+"得獎\n得獎票數ID: "+result[1]);
+}
+</script>
+<style>
+#header{color:#FFFFFF;}
+</style>
